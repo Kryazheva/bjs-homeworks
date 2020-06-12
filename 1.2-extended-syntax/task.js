@@ -5,43 +5,50 @@ function getResult(a, b, c) {
         let firstValue = (-b + Math.sqrt(D)) / (2 * a);
         let secondValue = (-b - Math.sqrt(D)) / (2 * a);
         x = [firstValue, secondValue];
-        return x;
+
     } else if (D === 0) {
         let valueZero = -b / (2 * a);
         x = valueZero;
-        return x;
+
     } else {
-        return x;
+        x;
     }
+
+    return x;
 }
 
 function getAverageMark(marks) {
-    let sum = 0;
-    if (marks.length > 5) {
-        let cutMarks = marks.splice(0, 5);
-        marks = cutMarks;
-        console.log('У вас больше пяти оценок,ваш средний бал', averageMark);
-        for (let i = 0; i <= marks.length; ++i) {
-            sum += marks[i];
-        }
-        return averageMark = sum / marks.length;
-    } else if (marks.length <= 5) {
-        for (let i = 0; i <= marks.length; ++i) {
-            sum += marks[i];
-        }
-        return averageMark = sum / marks.length;
+
+    if (marks.length === 0) {
+        return marks;
     }
 
+    if (marks.length > 5) {
+        marks = marks.splice(0, 5);
+        console.log('Вы ввели больше пяти оценок')
+    }
+
+    let sum = 0;
+    for (let i = 0; i < marks.length; ++i) {
+        sum += marks[i];
+    }
+
+    let averageMark = sum / marks.length;
 
 
-
-
-
-
+    return Math.floor(averageMark);
 
 }
 
 function askDrink(name, dateOfBirthday) {
-    // код для задачи №3 писать здесь
-    // return result;
+    let year = new Date().getFullYear();
+    let averageYear = year - dateOfBirthday.getFullYear();
+    if (averageYear > 18) {
+        result = `Не желаете ли олд-фэшн, ${name}?`;
+    };
+    if (averageYear < 18) {
+        result = `Сожалею, ${name}, но я не могу вам продать алкоголь. Зато могу предложить вам замечательный клюквенный компот!`;
+    };
+
+    return result;
 }
