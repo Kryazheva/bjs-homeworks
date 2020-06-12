@@ -16,8 +16,29 @@ function getResult(a, b, c) {
 }
 
 function getAverageMark(marks) {
-    // код для задачи №2 писать здесь
-    // return averageMark;
+    let sum = 0;
+    if (marks.length > 5) {
+        let cutMarks = marks.splice(0, 5);
+        marks = cutMarks;
+        console.log('У вас больше пяти оценок,ваш средний бал', averageMark);
+        for (let i = 0; i <= marks.length; ++i) {
+            sum += marks[i];
+        }
+        return averageMark = sum / marks.length;
+    } else if (marks.length <= 5) {
+        for (let i = 0; i <= marks.length; ++i) {
+            sum += marks[i];
+        }
+        return averageMark = sum / marks.length;
+    }
+
+
+
+
+
+
+
+
 }
 
 function askDrink(name, dateOfBirthday) {
