@@ -41,7 +41,7 @@ class Triangle {
 
     getArea() {
         const halfMetr = P / 2;
-        const S = Math.sqrt(halfMetr * (halfMetr - a) * (halfMetr - b) * (halfMetr - c));
+        const S = Math.sqrt(halfMetr * (halfMetr - this.a) * (halfMetr - this.b) * (halfMetr - this.c));
         console.log(S);
         return parseFloat(S);
     }
