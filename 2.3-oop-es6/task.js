@@ -5,7 +5,7 @@ class PrintEditionItem {
         this.name = name;
         this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
-        this.state = 100;
+        this.state = 150;
         this.type = null;
     }
 
@@ -15,10 +15,10 @@ class PrintEditionItem {
     }
 
     set state(number) {
-        if (this.state < 0) {
-            this.state = 0;
-        } else if (this.state > 100) {
-            this.state = 100;
+        if (number < 0) {
+            this._state = 0;
+        } else if (number > 100) {
+            this._state = 100;
         } else {
             this._state = number;
         }
@@ -104,7 +104,7 @@ class Library {
     giveBookByName(bookName) {
         for (let i = 0; i < this.books.length; ++i) {
             if (this.books[i].name === bookName) {
-                return this.books.splice(i, 1);
+                return this.books[i].name;
             }
         }
         return null;
@@ -121,7 +121,7 @@ console.log(library.findBookBy("name", "Властелин колец")); //null
 console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
 
 console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
-library.giveBookByName("Машина времени");
+console.log(library.giveBookByName("Машина времени"));
 console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
 
 //внесение оценки по названию предмета;
@@ -131,7 +131,7 @@ console.log("Количество книг после выдачи: " + library.
 class StudentLog {
     constructor(name) {
         this.name = name;
-        this.subjects = '';
+
     }
 
     getName() {
@@ -140,8 +140,9 @@ class StudentLog {
 
     addGrade(grade, subject) {
         if (grade >= 1 && grade <= 5) {
-            this.subjects[subject].push(grade)
-            return this.subjects[subject];
+            this.subjects.push(grade);
+            this.subjects.push(subject);
+            return this.subjects;
         } else {
             console.log(`Вы пытались поставить оценку ${grade} по предмету ${subject}. Допускаются только числа от 1 до 5`);
             return 0;
