@@ -52,19 +52,21 @@ function getAverageScore(data) {
     let totalPro = 0;
     for (let pro in data) {
         let value = getAverageMark(data[pro]);
-        // console.log(`${data[pro]}`);
+        console.log(`${pro}`);
         totalSum += value;
         totalPro += 1;
-
-        console.log(`${pro} : ${data[pro]}`);
-
+        data = {
+            [pro]: value
+        };
+        console.log(data);
     }
     let average = totalSum / totalPro;
 
 
-    return { pro: data[pro] };
+
+    return data;
 }
-getAverageScore(inputData);
+
 
 function getAverageMark(marks) {
 
