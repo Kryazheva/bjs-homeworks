@@ -25,6 +25,7 @@ class Triangle {
         this.a = parseInt(a);
         this.b = parseInt(b);
         this.c = parseInt(c);
+        this.getCondition();
     }
     getCondition() {
         if (this.a + this.b < this.c || this.b + this.c < this.a || this.a + this.c < this.b) {
@@ -48,10 +49,13 @@ class Triangle {
 }
 
 function getTriangle(a, b, c) {
+    const triangle = new Triangle(a, b, c);
     try {
-        const triangle = new Triangle(a, b, c);
+        console.table(triangle);
         return triangle;
     } catch (err) {
-        return err;
+        triangle.getPerimeter();
+        triangle.getArea();
+        return ('Ошибка! Треугольник не существует');
     }
 }
