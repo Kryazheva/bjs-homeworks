@@ -52,15 +52,13 @@ function getAverageScore(data) {
     let totalPro = 0;
     for (let pro in data) {
         let value = getAverageMark(data[pro]);
-        console.log(`${pro}`);
         totalSum += value;
         totalPro += 1;
-        data = {
-            [pro]: value
-        };
-        console.log(data);
+        data[pro] = value;
+
     }
     let average = totalSum / totalPro;
+    data['average'] = average;
 
 
 
@@ -84,7 +82,6 @@ function getAverageMark(marks) {
     }
     return sum / marks.length;
 }
-getAverageScore(inputData);
 
 const arraySecret = { aaa: 0, bbb: 1 }
 
@@ -106,3 +103,5 @@ function getDecodedValue(secret) {
         return 'Radrigo';
     }
 }
+
+console.log(getAverageScore(inputData))
