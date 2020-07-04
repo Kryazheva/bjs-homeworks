@@ -49,8 +49,8 @@ class Triangle {
 }
 
 function getTriangle(a, b, c) {
-    const triangle = new Triangle(a, b, c);
     try {
+        const triangle = new Triangle(a, b, c);
         console.table(triangle);
         return triangle;
     } catch (err) {
